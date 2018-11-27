@@ -46,7 +46,7 @@ body{
     padding: 8px;
 }
 .songList li.active{
-    background: rgb(204, 143, 143);
+    background: #d4d4d4;
 } 
 .uploadArea{}
 
@@ -68,9 +68,44 @@ body{
     cursor: pointer;
 }
 
+/* main */
 
-
-
+.page main{
+    background: #d4d4d4;
+    padding: 20px;
+}
+.page main .form{
+    font-size: 14px;
+}
+.form .row{
+    margin: 20px 0;
+    display: flex;
+}
+.form .row.actions{
+    margin-left: calc(4em + 5px);
+}
+.form .row label{
+    width: 4em;
+    margin-right: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.form input[type=text]{
+    height: 30px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.form input[type=button],
+.form input[type=submit],
+.form button{
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: rgb(247, 244, 244);
+}
 
 
 
