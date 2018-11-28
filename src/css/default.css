@@ -37,9 +37,11 @@ body{
 .newSong.active{
     background: rgb(204, 143, 143);
 }
+.songList-container{
+    flex-grow: 1;
+}
 .songList{
     text-align: left;
-    flex-grow: 1;
 }
 .songList li{
     border-bottom: 1px solid #ddd;
