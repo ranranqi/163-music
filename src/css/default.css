@@ -35,7 +35,7 @@ body{
     border-bottom: 1px solid rgb(151, 145, 145);
 }
 .newSong.active{
-    background: rgb(204, 143, 143);
+    background: #d4d4d4;;
 }
 .songList-container{
     flex-grow: 1;
@@ -50,7 +50,6 @@ body{
 .songList li.active{
     background: #d4d4d4;
 } 
-.uploadArea{}
 
 .draggable{
     text-align: center;
