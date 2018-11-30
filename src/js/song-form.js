@@ -67,14 +67,15 @@
                 //this.data.name = attributes.name
                 //this.data.singer = attributes.singer
                 //this.data.url = attributes.url
-                Object.assign(this.data, {
-                    id,
-                    ...attributes,//新语法，和下面注释的四行意思一样
+                this.data = {id,...attributes}
+                //Object.assign(this.data, {
+                    //id,
+                    //...attributes,//新语法，和下面注释的四行意思一样
                     //id: id,
                     //name: attributes.name,
                     //singer: attributes.singer,
                     //url: attributes.url   
-                })
+                //})
 
             }, (error)=>{
                 console.error(error)
@@ -89,7 +90,8 @@
             this.bindEvents()
             this.view.render(this.model.data)
             window.eventHub.on('upload', (data) => {
-                this.view.render(data)
+                this.model.data = data
+                this.view.render(this.model.data)
             })
         },
         bindEvents() {
