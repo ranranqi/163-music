@@ -36,13 +36,13 @@
                 html = html.replace(`__${string}__`, data[string] || '')
             })
             $(this.el).html(html)
-            if(data.id){ 
+            if (data.id) {
                 $(this.el).prepend('<h1>编辑歌曲</h1>')
-            }else{
+            } else {
                 $(this.el).prepend('<h1>新建歌曲</h1>')
             }
         },
-        reset(){
+        reset() {
             this.render({})
         }
     }
@@ -53,6 +53,16 @@
             url: '',
             id: ''
         },
+        update(data){
+            var song = AV.Object.createWithoutData('Song', this.data.id)
+            song.set('name', data.name)
+            song.set('singer', data.singer)
+            song.set('url', data.url)
+            return song.save().then((response)=>{
+                Object.assign(this.data, data)
+                return response
+            })
+        },
         create(data) {
             // 声明类型
             var Song = AV.Object.extend('Song');
@@ -62,26 +72,32 @@
             song.set('name', data.name);
             song.set('singer', data.singer);
             song.set('url', data.url);
-            return song.save().then((newSong)=>{
+            return song.save().then((newSong) => {
                 //let id =newSong.id
                 //let attributes = newSong.attributes
-                let {id, attributes} = newSong // 新语法，和上面注释的两行意思一样
+                let {
+                    id,
+                    attributes
+                } = newSong // 新语法，和上面注释的两行意思一样
 
                 //this.data.id = id   这四行也可以用下面的Object.assign（）表示
                 //this.data.name = attributes.name
                 //this.data.singer = attributes.singer
                 //this.data.url = attributes.url
-                this.data = {id,...attributes}
+                this.data = {
+                    id,
+                    ...attributes
+                }
                 //Object.assign(this.data, {
-                    //id,
-                    //...attributes,//新语法，和下面注释的四行意思一样
-                    //id: id,
-                    //name: attributes.name,
-                    //singer: attributes.singer,
-                    //url: attributes.url   
+                //id,
+                //...attributes,//新语法，和下面注释的四行意思一样
+                //id: id,
+                //name: attributes.name,
+                //singer: attributes.singer,
+                //url: attributes.url   
                 //})
 
-            }, (error)=>{
+            }, (error) => {
                 console.error(error)
             });
         }
@@ -93,34 +109,68 @@
             this.model = model
             this.bindEvents()
             this.view.render(this.model.data)
-            window.eventHub.on('upload', (data) => {
+            window.eventHub.on('select', (data) => {
                 this.model.data = data
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('select',(data)=>{
-                this.model.data = data
-                this.view.render(this.model.data)
-            })
-            window.eventHub.on('new',()=>{
-                this.model.data = {
-                    name: '', url: '', id: '', singer: ''
+            window.eventHub.on('new', (data) => {
+                //if(data === undefined){
+                //data = {
+                //name: '', url: '', id: '', singer: ''
+                //}
+                //}
+                //data = data || {
+                //name: '', url: '', id: '', singer: ''
+                //}
+                if (this.model.data.id) {
+                    this.model.data = {
+                        name: '',
+                        url: '',
+                        id: '',
+                        singer: ''
+                    }
+                } else {
+                    Object.assign(this.model.data, data)
                 }
                 this.view.render(this.model.data)
+            })
+        },
+        create() {
+            let needs = 'name singer url'.split(' ')
+            let data = {}
+            needs.map((string) => {
+                data[string] = this.view.$el.find(`[name="${string}"]`).val()
+            })
+            this.model.create(data)
+                .then(() => {
+                    this.view.reset()
+                    let string = JSON.stringify(this.model.data)
+                    let object = JSON.parse(string)
+                    window.eventHub.emit('create', object)
+                })
+        },
+        update(){
+            let needs = 'name singer url'.split(' ')
+            let data = {}
+            needs.map((string) => {
+                data[string] = this.view.$el.find(`[name="${string}"]`).val()
+            })
+            this.model.update(data)
+            .then(()=>{
+                window.eventHub.emit('update',JSON.parse(JSON.stringify(this.model.data)))
             })
         },
         bindEvents() {
             this.view.$el.on('submit', 'form', (e) => {
                 e.preventDefault()
-                let needs = 'name singer url'.split(' ')
-                let data = {}
-                needs.map((string) => {
-                    data[string] = this.view.$el.find(`[name="${string}"]`).val()
-                })
-                this.model.create(data)
-                    .then(()=>{
-                        this.view.reset()
-                        window.eventHub.emit('create',this.model.data)
-                    })
+
+                if (this.model.data.id) {
+                    this.update()
+                } else {
+                    this.create()
+                }
+
+
             })
         }
     }

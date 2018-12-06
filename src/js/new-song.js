@@ -18,14 +18,15 @@
             window.eventHub.on('select',(data)=>{
                 this.deactive()
             })
-            window.eventHub.on('upload',(data)=>{
+            window.eventHub.on('new',(data)=>{
                 this.active()
             })
-            $(this.view.el).on('click',this.active.bind(this))
+            $(this.view.el).on('click',()=>{
+                window.eventHub.emit('new')
+            })
         },
         active(){
             $(this.view.el).addClass('active')
-            window.eventHub.emit('new')
         },
         deactive(){
             $(this.view.el).removeClass('active')
