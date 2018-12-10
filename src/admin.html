@@ -35,43 +35,6 @@
     </div>
 
 
-    <style>
-        @keyframes xxx{
-            0%{
-                transform: scale(1.0)
-            }
-            100%{
-                transform: scale(0.1)
-            }
-        }
-        .site-loading{
-            visibility: hidden;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(12, 0, 0,0.6);
-            z-index: 1;
-        }
-        .site-loading.active{
-            visibility: visible;
-        }
-        .site-loading::before{
-            content: '';
-            display: block;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: rgb(233, 192, 8);
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -50px;
-            margin-top: -50px;
-            animation: 0.8s xxx infinite linear alternate-reverse;
-        }
-    </style>
     <div id="siteLoading" class="site-loading">
     </div>
 
