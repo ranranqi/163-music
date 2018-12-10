@@ -15,9 +15,7 @@ body{
 .page{
     display: flex;
     flex-direction: row;
-    height: 600px;
-    width: 900px;
-    margin: 50px auto;
+    height: 100vh;
     background: url(../img/33.jpg) no-repeat center; 
 }
 .page aside{
