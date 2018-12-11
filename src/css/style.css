@@ -1,0 +1,246 @@
+/* reset */
+*{margin: 0; padding: 0;}
+*{box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+*::after{box-sizing: border-box;}
+ul,ol,li{list-style: none;}
+a{text-decoration: none;}
+body{
+    font: 14px/1.5 Helvetica,sans-serif;
+}
+
+/* icon */
+.icon {
+    width: 0.065rem;
+    height: 0.065rem;
+    background: #FFFFFF;
+    border-radius: 0.016rem;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+.licon {
+    width: 0.037rem;
+    height: 0.036rem;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+.f-icon{
+    width: 0.11rem;
+    height: 0.11rem;
+    vertical-align: -1.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/*layout*/
+.out{
+    position: relative;
+}
+.out .headerWrapper{
+    position: fixed;
+    z-index: 999;
+}
+.header{
+    width: 1rem;
+    height: 0.17rem;
+    border: 1px solid #e91717;
+    background: #D43C33;
+    display: flex;
+    align-items: center;
+}
+.header .bigLogo{
+    width: 0.38rem;
+    height: 0.066rem;
+    color: #FFFFFF;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    margin-left: 0.037rem;
+}
+.header .bigLogo .wangyi{
+    font-size: 0.052rem;
+    margin-left: 0.018rem;
+    font-weight: 400;
+    letter-spacing: 0.0055rem;
+}
+.header .download{
+    line-height: 0.08rem;
+    color: #FFFFFF;
+    font-size: 0.04rem;
+    border: 1px solid #FFFFFF;
+    border-radius: 37.5%/100%;
+    padding: 0 0.027rem;
+    position: absolute;
+    left: 0.76rem;
+
+}
+
+.out .navWrapper{
+    position: fixed;
+    top: 0.1653rem;
+    z-index: 999;
+    background: #FFFFFF;
+}
+.nav{
+    display: flex;
+    border-bottom: 1px solid #E8E8E8;
+    width: 1rem;
+}
+
+.nav .list{
+    width: 0.333rem;
+    height: 0.107rem;
+    display: flex;
+    justify-content: center;
+    font-size: 0.04rem;
+    cursor: pointer;
+}
+.active{
+    color: #D33A31
+}
+.nav .list .text{
+    height: 100%;
+    width: 0.187rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav .list .text{
+    position: relative;
+}
+.nav .active .text::before{
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    border-bottom: 2px solid #D33A31;
+}
+
+
+
+
+.songForm{
+    width: 1rem;
+    padding-top: 0.04rem;
+    background: #FCFCFD;
+    position: absolute;
+    top: 0.27rem;
+}
+.songForm .htwo{
+    font-size: 0.046rem;
+    padding-left: 0.024rem;
+    margin-bottom: 0.036rem;
+    font-weight: normal;
+    position: relative;
+}
+.songForm .htwo::before{
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.024rem;
+    width: 2px;
+    height: 0.043rem;
+    background-color: #d33a31;
+}
+.songForm .formRow{
+    display: flex;
+    padding-bottom: 0.03rem;
+}
+.songForm .formRow .alink{
+    width: 33.3%;
+    padding: 0 0.004rem;
+}
+.songForm .formRow .alink .imgWrap{
+    position: relative;
+}
+.songForm .formRow .alink .imgWrap .imgU{
+    width: 100%;
+}
+.songForm .formRow .alink .imgWrap span{
+    font-size: 0.032rem;
+    position: absolute;
+    top: 0.005rem;
+    right: 0.013rem;
+    color: #FFFFFF;
+}
+.songForm .formRow .alink .imgT{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.03467rem;
+    color: #333;
+}
+.songForm .formRowWrap{
+    padding-bottom: 0.05rem;
+}
+
+.songForm .songList .aWrap .liWrap{
+    margin-left: 0.024rem;
+    margin-right: 0.024rem;
+    color: #333;
+    height: 0.146rem;
+    border-bottom: 0.003rem solid #F1F1F2;
+    display: flex;
+    justify-content: space-between;
+}
+.songForm .songList .aWrap .liWrap .songname{
+    font-size: 0.045rem;
+}
+.songForm .songList .aWrap .liWrap .singer{
+    font-size: 0.032rem;
+    color: #888;
+}
+.songForm .songList .aWrap .liWrap .singer .sq{
+    width: 0.035rem;
+    height: 0.024rem;
+}
+.songForm .songList .aWrap .liWrap .liright{
+    display: flex;
+    align-items: center;
+    padding: 0 0.0267rem;
+}
+.songForm .songList .aWrap .liWrap .liright .player{
+    width: 0.065rem;
+    height: 0.065rem;
+}
+
+
+.songForm .footer{
+    width: 100%;
+    height: 0.533rem;
+    background: url(../img/99.png) no-repeat center center;
+}
+.songForm .footer .logo{
+    display: flex;
+    align-items: center;
+    width: 0.613rem;
+    margin: 0 auto;
+    padding-top: 16.9%;
+}
+.songForm .footer .logo .wangyi{
+    font-size: 0.083rem;
+    margin-left: 0.022rem;
+    font-weight: 400;
+    letter-spacing: 0.0055rem;
+}
+.songForm .footer .download{
+    line-height: 0.1rem;
+    border: 1px solid #d33a31;
+    border-radius: 0.1rem;
+    font-size: 0.043rem;
+    letter-spacing: 0.002rem;
+    color: #d33a31;
+    margin: 0.04rem 0.099rem 0.013rem;
+    text-align: center;
+}
+.songForm .footer p{
+    color: #888;
+    font-size: 0.032rem;
+    line-height: 0.0427rem;
+    transform: scale(0.75);
+    text-align: center;
+}
