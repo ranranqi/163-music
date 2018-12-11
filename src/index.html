@@ -13,7 +13,7 @@
 
 <body>
     <div class="out">
-        <div class="headerWrapper">
+        <section class="headerWrapper">
             <div class="header">
                 <div class="bigLogo">
                     <svg class="icon" aria-hidden="true">
@@ -25,24 +25,24 @@
 
                 <div class="download">下载APP</div>
             </div>
-        </div>
+        </section>
 
-        <div class="navWrapper">
-            <div class="nav" id="tabs">
-                <li class="list">
+        <section class="navWrapper" id="tabs">
+            <ol class="nav">
+                <li class="list active"  data-tab-name="page-1">
                     <div class="text"><span>推荐音乐</span></div>
                 </li>
-                <li class="list">
+                <li class="list"  data-tab-name="page-2">
                     <div class="text"><span>热歌榜</span></div>
                 </li>
-                <li class="list">
+                <li class="list"  data-tab-name="page-3">
                     <div class="text"><span>搜索</span></div>
                 </li>
-            </div>
-        </div>
+            </ol>
+        </section>
 
         <ol class="tab">
-            <li class="page-1">
+            <li class="page-1 active">
                 <div class="songForm">
                     <h2 class="htwo">推荐歌曲</h2>
 
@@ -137,7 +137,7 @@
 
                     <ol class="songList">
 
-                        <li class="aWrap" href="">
+                        <li class="aWrap active" href="">
                             <div class="liWrap">
                                 <div class="lileft">
                                     <div class="songname">黑色毛衣</div>
@@ -167,23 +167,34 @@
                 </div>
             </li>
 
-            <li class="page-2">page222222</li>
-
             <li class="page-2">
-                <input type="text" value="搜索">
+                <div class="rank">
+                    dddddd
+                </div>
+            </li>
+
+            <li class="page-3">
+                <input id="search" type="text" style="background:rgb(18, 165, 165);">
+                <ol id="searchResult"></ol>
             </li>
         </ol>
-        
-
+    
     </div>
 
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./main.js"></script>
     <script>
         var pageWidth = window.innerWidth
         document.write('<style>html{font-size: ' + pageWidth + 'px;}</style>')
     </script>
+    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="./js/initializers/av.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="./js/admin/event-hub.js"></script>
+    <script src="./js/index/tabs.js"></script>
+    <script src="./js/index/page-1.js"></script>
+    <script src="./js/index/page-2.js"></script>
+    <script src="./js/index/page-3.js"></script>
 </body>
 
 </html>

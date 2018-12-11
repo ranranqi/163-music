@@ -97,7 +97,7 @@ body{
     font-size: 0.04rem;
     cursor: pointer;
 }
-.active{
+.nav .list.active{
     color: #D33A31
 }
 .nav .list .text{
@@ -119,7 +119,18 @@ body{
 }
 
 
-
+.out .tab li{
+    display: none;
+}
+.out .tab li.active{
+    display: block;
+}
+.out .tab .page-2,
+.out .tab .page-3{
+    width: 1rem; 
+    position: absolute; 
+    top: 0.277rem;
+}
 
 .songForm{
     width: 1rem;
