@@ -1,28 +1,36 @@
 {
     let view = {
         el: '.songs',
+        template: `
+            <li class="aWrap active" href="">
+                <div class="liWrap">
+                    <div class="lileft">
+                        <div class="songname">{{song.name}}</div>
+                        <div class="singer">
+                            <img class="sq" src="./img/2.png" alt="#">
+                            {{song.singer}}
+                        </div>
+                    </div>
+                    <div class="liright">
+                        <a href="./song.html?id={{song.id}}">
+                            <img class="player" src="./img/1.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </li>
+        `,
         init(){
             this.$el = $(this.el)
         },
+
         render(data){
             let {songs} = data
             songs.map((song)=>{
-                let $li = $(`
-                    <li class="aWrap active" href="">
-                        <div class="liWrap">
-                            <div class="lileft">
-                                <div class="songname">${song.name}</div>
-                                <div class="singer">
-                                    <img class="sq" src="./img/2.png" alt="#">
-                                    ${song.singer}
-                                </div>
-                            </div>
-                            <div class="liright">
-                                <img class="player" src="./img/1.png" alt="">
-                            </div>
-                        </div>
-                    </li>
-                `)
+                let $li = $(this.template
+                    .replace('{{song.name}}',song.name)
+                    .replace('{{song.singer}}',song.singer)
+                    .replace('{{song.id}}',song.id)
+                    )
                 this.$el.find('ol.songList').append($li)
             })
             
