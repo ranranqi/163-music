@@ -156,7 +156,7 @@
             })
         },
         create() {
-            let needs = 'name singer url cover lyrics.split'(' ')
+            let needs = 'name singer url cover lyrics'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
