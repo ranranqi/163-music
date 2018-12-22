@@ -28,7 +28,6 @@
           let p = document.createElement('p')
           let regex = /\[([\d:.]+)\](.+)/
           let matches =string.match(regex)
-          console.log(matches)
           if(matches){
             p.textContent = matches[2]
             let time = matches[1]
