@@ -129,7 +129,7 @@ body{
 .out .tab .page-3{
     width: 1rem; 
     position: absolute; 
-    top: 0.277rem;
+    top: 0.27rem;
 }
 
 .songForm{
@@ -254,4 +254,11 @@ body{
     line-height: 0.0427rem;
     transform: scale(0.75);
     text-align: center;
+}
+
+.rank .rankTop{
+    width: 1rem;
+    height: 0.40rem;
+    background: url(//s3.music.126.net/m/s/img/hot_music_bg_2x.jpg?f01a252…) no-repeat center center;
+    background-size: cover;
 }
